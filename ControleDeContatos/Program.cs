@@ -1,3 +1,6 @@
+using ControleDeContatos.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace ControleDeContatos
 {
 	public class Program
@@ -6,6 +9,12 @@ namespace ControleDeContatos
 		{
 			var builder = WebApplication.CreateBuilder(args);
 
+			//Conexão banco de dados
+			builder.Services.AddDbContext<BancoContext>(options =>
+			{
+				options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+			});
+		
 			// Add services to the container.
 			builder.Services.AddControllersWithViews();
 
