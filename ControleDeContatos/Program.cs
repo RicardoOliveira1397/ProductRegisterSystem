@@ -1,4 +1,6 @@
 using ControleDeContatos.Data;
+using ControleDeContatos.Repository;
+using Microsoft.AspNetCore.Mvc.TagHelpers;
 using Microsoft.EntityFrameworkCore;
 
 namespace ControleDeContatos
@@ -9,11 +11,20 @@ namespace ControleDeContatos
 		{
 			var builder = WebApplication.CreateBuilder(args);
 
-			//Conexão banco de dados
+			/// <summary>
+			/// Realiza a conexão com o banco de dados Postgresql 
+			/// através do ORM EntityFramework pelo método UseNpgsql passando a connection string em appsettings
+			/// </summary>
 			builder.Services.AddDbContext<BancoContext>(options =>
 			{
 				options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 			});
+
+            /// <summary>
+			/// Dependecies Injection
+            /// toda vez que a interface IContatoRepository for chamada, resolva a classe implementada ContatoRepository
+            /// </summary>
+            builder.Services.AddScoped<IContatoRepository, ContatoRepository>(); 
 		
 			// Add services to the container.
 			builder.Services.AddControllersWithViews();
