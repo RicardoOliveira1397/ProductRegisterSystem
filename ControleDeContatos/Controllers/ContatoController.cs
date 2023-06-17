@@ -19,6 +19,11 @@ namespace ControleDeContatos.Controllers
 			return View();
 		}
 
+		public IActionResult ApagarConfirmacao()
+		{
+			return View();
+		}
+
 		public IActionResult Apagar()
 		{
 			return View();
