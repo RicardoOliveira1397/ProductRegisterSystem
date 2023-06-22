@@ -1,6 +1,7 @@
 ﻿using ControleDeContatos.Models;
 using ControleDeContatos.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace ControleDeContatos.Controllers
 {
@@ -48,9 +49,13 @@ namespace ControleDeContatos.Controllers
 		[HttpPost]
 		public IActionResult Criar(ContatoModel contato)
 		{
-			_contatoRepository.Adicionar(contato);
+			if (ModelState.IsValid) //verifica se o estado da model é valido de acordo com o Data Anotation na própria Model "ContatoModel"
+			{
+                _contatoRepository.Adicionar(contato);
+				return RedirectToAction("Index");
+            }
 
-			return RedirectToAction("Index");
+			return View(contato);
 		}
 
 		[HttpPost]
