@@ -8,13 +8,13 @@ namespace ControleDeContatos.Controllers
 	{
 		private readonly IContatoRepository _contatoRepository;
 
-        public ContatoController(IContatoRepository contatoRepository)
-        {
-			_contatoRepository = contatoRepository;
-        }
-        public IActionResult Index()
+		public ContatoController(IContatoRepository contatoRepository)
 		{
-			var contatos =_contatoRepository.Buscartodos();
+			_contatoRepository = contatoRepository;
+		}
+		public IActionResult Index()
+		{
+			var contatos = _contatoRepository.Buscartodos();
 
 			return View(contatos);
 		}
@@ -24,19 +24,25 @@ namespace ControleDeContatos.Controllers
 			return View();
 		}
 
-		public IActionResult Editar ()
+		public IActionResult Editar(int id)
 		{
-			return View();
+			ContatoModel contato = _contatoRepository.BuscarContato(id);
+
+			return View(contato);
 		}
 
-		public IActionResult ApagarConfirmacao()
+		public IActionResult ApagarConfirmacao(int id)
 		{
-			return View();
+			ContatoModel contato = _contatoRepository.BuscarContato(id);
+			
+			return View(contato);
 		}
 
-		public IActionResult Apagar()
+		public IActionResult Apagar(int id)
 		{
-			return View();
+			_contatoRepository.ApagarContato(id);
+
+			return RedirectToAction("Index");
 		}
 
 		[HttpPost]
@@ -46,5 +52,14 @@ namespace ControleDeContatos.Controllers
 
 			return RedirectToAction("Index");
 		}
+
+		[HttpPost]
+		public IActionResult Alterar(ContatoModel contato)
+		{
+			_contatoRepository.AlterarContato(contato);
+
+			return RedirectToAction("Index");
+		}
+
 	}
 }
