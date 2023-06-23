@@ -1,6 +1,5 @@
 using ControleDeContatos.Data;
 using ControleDeContatos.Repository;
-using Microsoft.AspNetCore.Mvc.TagHelpers;
 using Microsoft.EntityFrameworkCore;
 
 namespace ControleDeContatos

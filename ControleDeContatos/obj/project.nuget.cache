@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "UwgMA6SD31jxiySbVtqdkowsKp2weMyXya13pjXLdudUn9QvI4wH/8eYLm7Fga4Vat+MO0wt9ZKSxrryM5x89g==",
+  "dgSpecHash": "QuqZ8gHI8HuVNKGarzaN7p/jJwUn/MMhxCfjs/zpXMIK0kn9YcS9fR2blcl4ve4xbzhIkXv2EzClnYzkHW5Kcw==",
   "success": true,
   "projectFilePath": "C:\\Users\\rick_\\OneDrive\\Documentos\\Projetos\\ControleDeContatos\\ControleDeContatos\\ControleDeContatos.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rick_\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\rick_\\.nuget\\packages\\jquery\\3.7.0\\jquery.3.7.0.nupkg.sha512",
     "C:\\Users\\rick_\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.7\\microsoft.entityframeworkcore.7.0.7.nupkg.sha512",
     "C:\\Users\\rick_\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.7\\microsoft.entityframeworkcore.abstractions.7.0.7.nupkg.sha512",
     "C:\\Users\\rick_\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.7\\microsoft.entityframeworkcore.analyzers.7.0.7.nupkg.sha512",

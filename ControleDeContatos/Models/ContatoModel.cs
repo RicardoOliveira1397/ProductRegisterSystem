@@ -8,7 +8,7 @@ namespace ControleDeContatos.Models
         /// Atributos do Data Anotation, recurso do .NET
         /// </summary>
         public int Id { get; set; }
-        [Required(ErrorMessage = "Digite o nome do contato")]
+        [Required(ErrorMessage = "Digite o Nome do contato")]
         public string? Nome { get; set; }
         [Required(ErrorMessage = "Digite o E-mail do contato")]
         [EmailAddress(ErrorMessage = "E-mail informado inválido")]
