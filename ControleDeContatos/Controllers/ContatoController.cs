@@ -50,7 +50,7 @@ namespace ControleDeContatos.Controllers
                 }
 				else
 				{
-                    TempData["MensagemErro"] = $"Ops! Não foi possível apagar contato, tente novamente, stack trace: {erro.Message}";
+                    TempData["MensagemErro"] = $"Ops! Não foi possível apagar contato, tente novamente";
                 }
 
                 return RedirectToAction("Index");
