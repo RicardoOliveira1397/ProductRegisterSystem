@@ -34,3 +34,7 @@ label {
     width:30px;
     height: 31px;
 }
+
+th {
+    text-align: center !important;
+}
