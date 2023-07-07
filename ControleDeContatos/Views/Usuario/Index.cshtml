@@ -8,7 +8,7 @@
     <h1 class="display-4 mb-5">Listagem de Usuários</h1>
 
     <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-2">
-        <a class="btn btn-primary" role="button" asp-controller="Contato" asp-action="Criar">Adicionar novo usuário</a>
+        <a class="btn btn-primary" role="button" asp-controller="Usuario" asp-action="Criar">Adicionar novo usuário</a>
     </div>
 
     @if (TempData["MensagemSucesso"] != null)
@@ -35,6 +35,7 @@
                 <th scope="col">Login</th>
                 <th scope="col">E-mail</th>
                 <th scope="col">Data de Cadastro</th>
+                <th scope ="col">Ações</th>
             </tr>
         </thead>
         <tbody class="table-group-divider">
@@ -51,7 +52,7 @@
                         <td>
                             <div class="btn-group" role="group">
                                 <a role="button" class="btn btn-primary" asp-route-id="@usuario.Id" asp-controller="Usuario" asp-action="Editar">Editar</a>
-                                <a role="button" class="btn btn-danger" asp-route-id="@usuario.Id" asp-controller="Usuario" asp-action="ApagarConfirmacao">Apagar</a>
+                                <a role="button" class="btn btn-danger" asp-route-id="@usuario.Id" asp-controller="Usuario" asp-action="Apagar">Apagar</a>
                             </div>
                         </td>
                     </tr>

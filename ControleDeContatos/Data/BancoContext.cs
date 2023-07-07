@@ -7,6 +7,7 @@ namespace ControleDeContatos.Data
     {
         public BancoContext(DbContextOptions<BancoContext> options) : base(options)
         {
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
         }
 
         public DbSet<ContatoModel> Contatos { get; set; }

@@ -14,6 +14,7 @@ namespace ControleDeContatos.Repository
         }
         public UsuarioModel Adicionar(UsuarioModel usuario)
         {
+            usuario.DataCadastro = DateTime.Now;
             _bancoContext.Usuarios.Add(usuario);
             _bancoContext.SaveChanges();
             return usuario;
@@ -35,27 +36,29 @@ namespace ControleDeContatos.Repository
 
         public UsuarioModel Alterar(UsuarioModel usuario)
         {
-            var contatoDB = Buscar(usuario.Id);
-            if (contatoDB == null)
-                throw new Exception($"Ocorreu um erro na atualização dos dados do contato {contatoDB?.Nome}");
+            var usuarioDB = Buscar(usuario.Id);
+            if (usuarioDB == null)
+                throw new Exception($"Ocorreu um erro na atualização dos dados do usuário");
 
-            contatoDB.Nome = usuario.Nome;
-            contatoDB.Login = 
-            contatoDB.Email = usuario.Email;
+            usuarioDB.Nome = usuario.Nome;
+            usuarioDB.Login =
+            usuarioDB.Email = usuario.Email;
+            usuarioDB.Perfil = usuario.Perfil;
+            usuarioDB.DataAtualizacao = DateTime.Now;
 
-            _bancoContext.Usuarios.Update(contatoDB);
+            _bancoContext.Usuarios.Update(usuarioDB);
             _bancoContext.SaveChanges();
 
-            return contatoDB;
+            return usuarioDB;
         }
 
         public bool Apagar(int id)
         {
-            var existente = Buscar(id);
-            if (existente == null)
-                throw new Exception($"Nenhum contato encontrado, exclusão não permitida");
+            UsuarioModel usuarioDb = Buscar(id);
+            if (usuarioDb == null)
+                throw new Exception($"Nenhum usuario encontrado");
 
-            _bancoContext.Usuarios.Remove(existente);
+            _bancoContext.Usuarios.Remove(usuarioDb);
             _bancoContext.SaveChanges();
 
             return true;

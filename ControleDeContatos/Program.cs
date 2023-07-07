@@ -18,17 +18,17 @@ namespace ControleDeContatos
 			{
 				options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 			});
-
             /// <summary>
 			/// Dependecies Injection
             /// toda vez que a interface IContatoRepository for chamada, resolva a classe implementada ContatoRepository
             /// </summary>
             builder.Services.AddScoped<IContatoRepository, ContatoRepository>(); 
-		
-			// Add services to the container.
-			builder.Services.AddControllersWithViews();
+			builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
-			var app = builder.Build();
+            // Add services to the container.
+            builder.Services.AddControllersWithViews();
+
+            var app = builder.Build();
 
 			// Configure the HTTP request pipeline.
 			if (!app.Environment.IsDevelopment())
